@@ -1,0 +1,179 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper, 
+			left=1.5in,
+			right=1.5in,
+			top=1.5in,
+			bottom=1.5in]{geometry}
+% \linespread{1.25} 
+
+%%% PACKAGES
+
+% A packages
+\usepackage{adjustbox}
+\usepackage{afterpage}
+\usepackage{authblk}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{appendix}
+
+
+% B packages
+\usepackage{booktabs}
+\usepackage{blindtext}
+\usepackage[style=apa, sortcites,backend=biber,giveninits=true]{biblatex}
+\usepackage[english]{babel}
+
+
+% C packages
+\usepackage{caption}
+\usepackage{color}
+
+
+% E packages
+\usepackage{enumerate}
+\usepackage{epigraph}
+
+% F packages
+\usepackage{footmisc}
+\usepackage[T1]{fontenc}
+\usepackage{float}
+\usepackage{fullpage}
+
+% G packages
+\usepackage{graphicx}
+\usepackage{geometry}
+
+% H packages
+\usepackage[colorlinks=true,linkcolor=blue, citecolor=blue]{hyperref}
+
+
+% I packages
+\usepackage[utf8]{inputenc}
+\usepackage{csquotes}
+
+% L packages
+\usepackage{longtable}
+\usepackage{lscape}
+\usepackage{ltablex}
+
+% M packages
+\usepackage{multirow}
+\usepackage{multicol}
+
+% N packages
+
+% O packages
+\usepackage{optidef}
+
+% P packages
+\usepackage{pbox}
+
+% R packages
+\usepackage{ragged2e}
+\usepackage{rotating}
+\usepackage{relsize}
+
+
+% S packages
+\usepackage[onehalfspacing]{setspace}
+\usepackage{siunitx}
+\usepackage[lofdepth]{subfig}
+
+
+% T packages
+\usepackage{tabularx}
+\usepackage{titlesec}
+
+% U packages
+\usepackage{url}
+\renewcommand{\UrlFont}{\footnotesize}
+
+% V packages
+\usepackage{verbatim}
+
+% X packages
+\usepackage{xfrac}
+\usepackage{xpatch}
+
+% Other comands
+\newtheorem{proposition}{Proposition}
+\newtheorem{assumption}{Assumption}
+\newtheorem{definition}{Definition}
+\newtheorem{solution}{Solution}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newcolumntype{C}[1]{>{\centering}m{#1}}
+
+
+
+
+%%% PREAMBLE TO GENERATE NICE ESTOUT STATA TABLES
+%%% http://www.jwe.cc/2012/03/stata-latex-tables-estout/
+
+% *****************************************************************
+% Estout related things
+% *****************************************************************
+\newcommand{\sym}[1]{\rlap{#1}}% Thanks to David Carlisle
+
+\let\estinput=\input% define a new input command so that we can still flatten the document
+
+\newcommand{\estwide}[3]{
+	\vspace{0.3cm}{
+		\begin{tabular*}
+			{\textwidth}{@{\hskip\tabcolsep\extracolsep\fill}l*{#2}{#3}}
+			\hline\hline
+			\addlinespace[0.3cm]
+			\estinput{#1}
+			\hline\hline
+			\addlinespace[0.3cm]
+		\end{tabular*}
+	}
+}	
+
+\newcommand{\estauto}[3]{
+	\vspace{0.3cm}{
+		\begin{tabular}{l*{#2}{#3}}
+			\hline\hline
+			\addlinespace[0.3cm]
+			\estinput{#1}
+			\hline\hline
+			\addlinespace[0.3cm]
+		\end{tabular}
+	}
+}
+
+% Allow line breaks with \\ in specialcells
+\newcommand{\specialcell}[2][c]{%
+	\begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+
+% *****************************************************************
+% Custom subcaptions
+% *****************************************************************
+% Note/Source/Text after Tables
+\newcommand{\figtext}[1]{
+	%\vspace{-1.9ex}
+	\captionsetup{justification=justified,font=footnotesize}
+	\caption*{\hspace{0pt}\hangindent=0.0em #1}
+}
+\newcommand{\fignote}[1]{\figtext{\emph{Note:~}~#1}}
+
+\newcommand{\figsource}[1]{\figtext{\emph{Source:~}~#1}}
+
+% Add significance note with \starnote
+\newcommand{\starnote}{\figtext{* p < 0.1, ** p < 0.05, *** p < 0.01. Standard errors in parentheses.}}
+
+% *****************************************************************
+% siunitx
+% *****************************************************************
+\sisetup{
+	detect-mode,
+	tight-spacing		= true,
+	group-digits		= false ,
+	input-signs		= ,
+	input-symbols		= ( ) [ ] - + *,
+	input-open-uncertainty	= ,
+	input-close-uncertainty	= ,
+	table-align-text-post	= false
+}

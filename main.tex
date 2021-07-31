@@ -1,0 +1,49 @@
+% preamble;
+\input{preamble/preamble.tex}
+
+% style;
+% \usepackage{mathpazo}
+
+% bibliography command;
+\addbibresource{bibliography/bibliography.bib}
+
+% header;
+\title{Title\thanks{Many thanks to everyone.}}
+\author{Ahmad A. Mourad Jr.\footnote{ahmad.mourad16@gmail.com}}
+
+\begin{document}
+\maketitle
+
+% abstract;
+\input{sections/abstract.tex}
+
+% table of contents;
+\tableofcontents
+
+% data construction;
+\input{sections/introduction.tex}
+
+% data;
+\input{sections/data.tex}
+
+% results;
+\input{sections/results.tex}
+
+% conclusion;
+\input{sections/conclusion.tex}
+
+% references;
+\addcontentsline{toc}{section}{References}
+\printbibliography
+
+% new page;
+\newpage
+
+% appendix;
+\appendix
+\input{appendix/figures.tex}
+\input{appendix/tables.tex}
+
+\end{document}
+
+
